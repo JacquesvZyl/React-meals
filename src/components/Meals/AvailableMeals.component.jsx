@@ -3,7 +3,7 @@ import styles from "./AvailableMeals.module.css";
 import Card from "../UI/Card/Card.component";
 import Meal from "./MealItem/MealItem.component";
 import useHTTP from "../../hooks/useHTTP";
-import LoopIcon from "@mui/icons-material/Loop";
+import Loading from "../UI/loading/Loading.component";
 
 function AvailableMeals() {
   const { error, isLoading, sendRequest } = useHTTP();
@@ -25,27 +25,24 @@ function AvailableMeals() {
 
     sendRequest(
       {
-        url: process.env.REACT_APP_DB_URL,
+        url: process.env.REACT_APP_DB_MEALS_URL,
       },
       mealsAddHandler
     );
-  }, []);
+  }, [sendRequest]);
 
-  const content = isLoading ? (
-    <div className={styles.loading}>
-      <LoopIcon className={styles.icon} />
-    </div>
-  ) : (
-    meals.map((meal) => (
-      <Meal
-        title={meal.name}
-        key={meal.id}
-        description={meal.description}
-        price={meal.price}
-        id={meal.id}
-      />
-    ))
-  );
+  if (isLoading) return <Loading />;
+
+  const content = meals.map((meal) => (
+    <Meal
+      title={meal.name}
+      key={meal.id}
+      description={meal.description}
+      price={meal.price}
+      id={meal.id}
+    />
+  ));
+
   return (
     <section className={styles.meals}>
       <Card>

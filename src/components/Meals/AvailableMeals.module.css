@@ -16,26 +16,7 @@
     text-align: center;
   }
 
-  .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-  }
-  .icon {
-    color: #8A2B06;
-    font-size: 100px !important;
-    animation: rotation 2s infinite linear;
-  }
 
-  @keyframes rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(-359deg);
-    }
-  }
   
   @keyframes meals-appear {
     from {
