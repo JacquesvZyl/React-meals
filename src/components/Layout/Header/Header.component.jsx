@@ -2,12 +2,13 @@ import React, { Fragment } from "react";
 import styles from "./Header.module.css";
 import mealsImg from "../../../assets/meals.jpg";
 import HeaderCartButton from "../HeaderCartButton/HeaderCartButton.component";
+import logo from "../../../assets/logo.png";
 
 function Header(props) {
   return (
     <Fragment>
       <header className={styles.header}>
-        <h1>ReactMeals</h1>
+        <img src={logo} className={styles.logo} alt="Logo" />
         <HeaderCartButton onShowCart={props.onShowCart} />
       </header>
       <div className={styles["main-image"]}>

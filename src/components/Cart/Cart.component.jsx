@@ -6,6 +6,7 @@ import CartItem from "./CartItem.component";
 import Checkout from "./Checkout";
 import useHTTP from "../../hooks/useHTTP";
 import Loading from "../UI/loading/Loading.component";
+import OrderConfirmation from "./OrderConfirmation.component";
 
 function Cart(props) {
   const [isCheckout, setIsCheckout] = useState(false);
@@ -96,7 +97,7 @@ function Cart(props) {
     <Modal onClick={props.onShowCart}>
       {isLoading && <Loading text={"Submitting order..."} color={"#892B06"} />}
       {!isLoading && !didSubmit && cartModalContent}
-      {didSubmit && didSubmitModalContent}
+      {didSubmit && <OrderConfirmation onShowCart={props.onShowCart} />}
     </Modal>
   );
 }

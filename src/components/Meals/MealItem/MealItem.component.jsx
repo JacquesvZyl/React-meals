@@ -19,10 +19,10 @@ function Meal(props) {
 
   return (
     <li className={styles.meal}>
-      <div>
+      <div className={styles["meal-text"]}>
         <h3>{title}</h3>
         <div>{description}</div>
-        <div>{price}</div>
+        <div className={styles.price}>{price}</div>
       </div>
       <div>
         <MealItemForm addTocart={addTocartHandler} />
