@@ -20,7 +20,9 @@ function useHTTP() {
 
       const data = await response.json();
       setDidSubmit(true);
-      applyData(data);
+      if (typeof applyData === "function") {
+        applyData(data);
+      }
     } catch (e) {
       setError(e.message || "Something went wrong");
     }

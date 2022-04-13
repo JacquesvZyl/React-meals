@@ -78,26 +78,16 @@ function Cart(props) {
     </React.Fragment>
   );
 
-  const didSubmitModalContent = (
-    <div>
-      <h3>Thank you for ordering!</h3>
-      <p>
-        We have received your order and will deliver it to your door as soon as
-        we can!
-      </p>
-      <div className={styles.actions}>
-        <button onClick={props.onShowCart} className={styles.button}>
-          Close
-        </button>
-      </div>
-    </div>
-  );
-
   return (
     <Modal onClick={props.onShowCart}>
       {isLoading && <Loading text={"Submitting order..."} color={"#892B06"} />}
-      {!isLoading && !didSubmit && cartModalContent}
-      {didSubmit && <OrderConfirmation onShowCart={props.onShowCart} />}
+      {!isLoading && !didSubmit && !error && cartModalContent}
+      {error && (
+        <OrderConfirmation error={error} onShowCart={props.onShowCart} />
+      )}
+      {!error && didSubmit && (
+        <OrderConfirmation onShowCart={props.onShowCart} />
+      )}
     </Modal>
   );
 }

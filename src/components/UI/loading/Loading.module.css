@@ -1,28 +1,26 @@
 .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    flex-direction: column;
-   
-  }
-  .icon {
-  
-    font-size: 100px !important;
-    animation: rotation 2s infinite linear;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
 
-  p {
+.icon {
+  animation: rotation 1s infinite linear;
+  width: 100px;
+  margin-top: 20px;
+}
 
-      font-weight: 600;
+p {
+  font-weight: 600;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
   }
-
-
-  @keyframes rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(-359deg);
-    }
+  to {
+    transform: rotate(-359deg);
   }
+}

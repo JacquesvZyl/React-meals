@@ -1,6 +1,6 @@
 import React from "react";
-import LoopIcon from "@mui/icons-material/Loop";
 
+import spinner from "../../../assets/spinner.png";
 import styles from "./Loading.module.css";
 
 function Loading(props) {
@@ -8,7 +8,7 @@ function Loading(props) {
   const color = props.color ? props.color : "white";
   return (
     <div className={styles.loading}>
-      <LoopIcon className={styles.icon} style={{ color: color }} />
+      <img src={spinner} className={styles.icon} alt="" />
       <p style={{ color: color }}>{text}</p>
     </div>
   );
